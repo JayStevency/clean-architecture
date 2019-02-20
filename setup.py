@@ -10,6 +10,7 @@ setuptools.setup(
     author_email="yjy1129@kookmin.ac.kr",
     long_description=long_description,
     url="https://github.com/problem-labs/clean-architecture",
+    download_url="https://github.com/problem-labs/clean-architecture",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
