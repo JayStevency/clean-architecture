@@ -41,7 +41,8 @@ class Entity:
             return entity
 
         to_serialize = vars(entity)
-        return {key: _type_switcher(value) for key, value in to_serialize.items() if value is not None}
+        return {key: _type_switcher(value)
+                for key, value in to_serialize.items() if value is not None}
 
     def to_dict(self):
         return self.entity2dict(self)

@@ -34,7 +34,8 @@ def test_response_success_contains_value(response_value):
     assert response.value == response_value
 
 
-def test_response_failure_has_type_and_message(response_type, response_message):
+def test_response_failure_has_type_and_message(response_type,
+                                               response_message):
     response = ResponseFailure(response_type, response_message)
 
     assert response.type == response_type
@@ -44,11 +45,13 @@ def test_response_failure_has_type_and_message(response_type, response_message):
 def test_response_failure_contains_value(response_type, response_message):
     response = ResponseFailure(response_type, response_message)
 
-    assert response.value == {'type': response_type, 'message': response_message}
+    assert response.value == {
+        'type': response_type, 'message': response_message}
 
 
 def test_response_failure_initialization_with_exception(response_type):
-    response = ResponseFailure(response_type, Exception('Just an exception message'))
+    response = ResponseFailure(
+        response_type, Exception('Just an exception message'))
 
     assert bool(response) is False
     assert response.type == response_type
@@ -56,7 +59,8 @@ def test_response_failure_initialization_with_exception(response_type):
 
 
 def test_response_failure_from_invalid_request_object():
-    response = ResponseFailure.build_from_invalid_request_object(InvalidRequestObject())
+    response = ResponseFailure.build_from_invalid_request_object(
+        InvalidRequestObject())
 
     assert bool(response) is False
 
@@ -66,7 +70,8 @@ def test_response_failure_from_invalid_request_object_with_errors():
     request_object.add_error('path', 'Is mandatory')
     request_object.add_error('path', "can't be blank")
 
-    response = ResponseFailure.build_from_invalid_request_object(request_object)
+    response = ResponseFailure.build_from_invalid_request_object(
+        request_object)
 
     assert bool(response) is False
     assert response.type == 400

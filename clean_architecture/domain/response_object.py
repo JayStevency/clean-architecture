@@ -14,7 +14,7 @@ class ResponseFailure:
 
     def __init__(self, type_, message):
         self.type = type_
-        self.message = message
+        self.message = self._format_message(message)
 
     def _format_message(self, msg):
         if isinstance(msg, Exception):

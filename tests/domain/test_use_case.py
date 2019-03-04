@@ -14,7 +14,7 @@ def test_use_case_cannot_process_valid_requests():
     assert not response
     assert response.type == 500
     assert response.message == \
-           'NotImplementedError: process_request() not implemented by UseCase class'
+        "NotImplementedError: process_request() not implemented by UseCase class"  # nopep8
 
 
 def test_use_case_can_process_invalid_requests_and_returns_response_failure():
