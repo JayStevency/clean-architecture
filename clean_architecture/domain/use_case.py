@@ -14,15 +14,16 @@ from clean_architecture.exception import (
 from .response_object import ResponseFailure
 
 
-class UseCase(object):
-
+class UseCase:
     def execute(self, request_object):
         if not request_object:
             return ResponseFailure.build_from_invalid_request_object(request_object)
         try:
             return self.process_request(request_object)
         except BadRequestException as e:
-            return ResponseFailure.build_resource_error(status_code=e.status_code, message=e.message)
+            return ResponseFailure.build_resource_error(
+                status_code=e.status_code, message=e.message
+            )
         except ConflictedException as e:
             return ResponseFailure.build_resource_error(status_code=e.status_code, message=e.message)
         except ForbiddenException as e:
@@ -47,4 +48,5 @@ class UseCase(object):
 
     def process_request(self, request_object):
         raise NotImplementedError(
-            "process_request() not implemented by UseCase class")
+            "process_request() not implemented by UseCase class"
+        )
