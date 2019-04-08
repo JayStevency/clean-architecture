@@ -22,26 +22,44 @@ class UseCase:
             return self.process_request(request_object)
         except BadRequestException as e:
             return ResponseFailure.build_resource_error(
-                status_code=e.status_code, message=e.message
+                status_code=e.status_code, error_code=e.error_code, message=e.message
             )
         except ConflictedException as e:
-            return ResponseFailure.build_resource_error(status_code=e.status_code, message=e.message)
+            return ResponseFailure.build_resource_error(
+                status_code=e.status_code, error_code=e.error_code, message=e.message
+            )
         except ForbiddenException as e:
-            return ResponseFailure.build_resource_error(status_code=e.status_code, message=e.message)
+            return ResponseFailure.build_resource_error(
+                status_code=e.status_code, error_code=e.error_code, message=e.message
+            )
         except MethodNotAllowedException as e:
-            return ResponseFailure.build_resource_error(status_code=e.status_code, message=e.message)
+            return ResponseFailure.build_resource_error(
+                status_code=e.status_code, error_code=e.error_code, message=e.message
+            )
         except NotAcceptableException as e:
-            return ResponseFailure.build_resource_error(status_code=e.status_code, message=e.message)
+            return ResponseFailure.build_resource_error(
+                status_code=e.status_code, error_code=e.error_code, message=e.message
+            )
         except NotFoundException as e:
-            return ResponseFailure.build_resource_error(status_code=e.status_code, message=e.message)
+            return ResponseFailure.build_resource_error(
+                status_code=e.status_code, error_code=e.error_code, message=e.message
+            )
         except PaymentRequiredException as e:
-            return ResponseFailure.build_resource_error(status_code=e.status_code, message=e.message)
+            return ResponseFailure.build_resource_error(
+                status_code=e.status_code, error_code=e.error_code, message=e.message
+            )
         except PreconditionFailedException as e:
-            return ResponseFailure.build_resource_error(status_code=e.status_code, message=e.message)
+            return ResponseFailure.build_resource_error(
+                status_code=e.status_code, error_code=e.error_code, message=e.message
+            )
         except UnauthorizedException as e:
-            return ResponseFailure.build_resource_error(status_code=e.status_code, message=e.message)
+            return ResponseFailure.build_resource_error(
+                status_code=e.status_code, error_code=e.error_code, message=e.message
+            )
         except UnProcessableEntityException as e:
-            return ResponseFailure.build_resource_error(status_code=e.status_code, message=e.message)
+            return ResponseFailure.build_resource_error(
+                status_code=e.status_code, error_code=e.error_code, message=e.message
+            )
         except Exception as exc:
             return ResponseFailure.build_system_error(
                 message="{}: {}".format(exc.__class__.__name__, "{}".format(exc)))
