@@ -5,12 +5,12 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="clean-architecture",
-    version="0.0.1",
-    author="problem-labs",
+    version="0.0.2",
+    author="jaystevency",
     author_email="yjy1129@kookmin.ac.kr",
     long_description=long_description,
-    url="https://github.com/problem-labs/clean-architecture",
-    download_url="https://github.com/problem-labs/clean-architecture",
+    url="https://github.com/JayStevency/clean-architecture",
+    download_url="https://github.com/JayStevency/clean-architecture",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
