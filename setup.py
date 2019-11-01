@@ -9,6 +9,7 @@ setuptools.setup(
     author="jaystevency",
     author_email="yjy1129@kookmin.ac.kr",
     long_description=long_description,
+    long_description_content_type='text/markdown',
     url="https://github.com/JayStevency/clean-architecture",
     download_url="https://github.com/JayStevency/clean-architecture",
     packages=setuptools.find_packages(),
