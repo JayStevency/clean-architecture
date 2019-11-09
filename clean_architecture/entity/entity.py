@@ -27,7 +27,7 @@ class Entity:
                     if all(isinstance(e, Entity) for e in value):
                         return [self.entity2dict(e) for e in value]
                     else:
-                        return str(value)
+                        return value
             else:
                 return value
 
